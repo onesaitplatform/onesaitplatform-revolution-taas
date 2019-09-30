@@ -271,6 +271,7 @@
 		<module>services/router/router-digitaltwin</module>
 
 		<!--MODULES -->
+        <module>modules/automl</module>
 		<module>modules/config-init</module>
 		<module>libraries/iot-broker-plugable</module>
 		<module>modules/iot-broker</module>
