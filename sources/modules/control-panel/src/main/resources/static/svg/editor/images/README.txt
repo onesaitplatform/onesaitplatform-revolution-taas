@@ -30,7 +30,7 @@ freehand-circle.png
 freehand-square.png
 go-down.png
 go-up.png
-image.png
+picture.png
 italic.png
 line.png
 logo.png

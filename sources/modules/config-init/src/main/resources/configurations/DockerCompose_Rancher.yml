@@ -2,7 +2,7 @@ version: '2'
 services:
   zookeeper:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/zookeeper-secured:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/zookeeper-secured:{{IMAGE_TAG}}
     environment:
       ZOOKEEPER_CLIENT_PORT: '2182'
     stdin_open: true
@@ -15,7 +15,7 @@ services:
       io.rancher.container.pull_image: always
   schedulerdb:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/schedulerdb:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/schedulerdb:{{IMAGE_TAG}}
     stdin_open: true
     volumes:
     - /datadrive/onesaitplatform/schedulerdb:/var/lib/mysql:rw
@@ -27,7 +27,7 @@ services:
       io.rancher.container.pull_image: always
   devicesimulator:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/devicesimulator:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/devicesimulator:{{IMAGE_TAG}}
     environment:
       SERVER_NAME: {{DOMAIN_NAME}}
     stdin_open: true
@@ -44,7 +44,7 @@ services:
       io.rancher.scheduler.affinity:host_label: node={{WORKER2DEPLOY}}
   zeppelin:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/notebook:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/notebook:{{IMAGE_TAG}}
     stdin_open: true
     volumes:
     - /datadrive/onesaitplatform/zeppelin/notebook:/zeppelin/notebook:rw
@@ -54,7 +54,7 @@ services:
       io.rancher.container.pull_image: always
   configdb:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/configdb:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/configdb:{{IMAGE_TAG}}
     stdin_open: true
     volumes:
     - /datadrive/onesaitplatform/configdb:/var/lib/mysql:rw
@@ -66,7 +66,7 @@ services:
       io.rancher.container.pull_image: always
   apimanagerservice:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/apimanager:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/apimanager:{{IMAGE_TAG}}
     environment:
       SERVER_NAME: {{DOMAIN_NAME}}
     stdin_open: true
@@ -85,7 +85,7 @@ services:
       io.rancher.scheduler.affinity:host_label: node={{WORKER2DEPLOY}}
   iotbrokerservice:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/iotbroker:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/iotbroker:{{IMAGE_TAG}}
     environment:
       SERVER_NAME: {{DOMAIN_NAME}}
       KAFKAENABLED: 'true'
@@ -106,7 +106,7 @@ services:
       io.rancher.scheduler.affinity:host_label: node={{WORKER2DEPLOY}}
   loadbalancerservice:
     privileged: true
-    image: nginx:{{IMAGE_TAG}}
+    picture: nginx:{{IMAGE_TAG}}
     stdin_open: true
     volumes:
     - /datadrive/onesaitplatform/webprojects:/usr/local/webprojects:rw
@@ -129,7 +129,7 @@ services:
       io.rancher.scheduler.affinity:host_label: node={{WORKER2DEPLOY}}
   quasar:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/quasar:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/quasar:{{IMAGE_TAG}}
     environment:
       AUTHPARAMS: platformadmin:0pen-platf0rm-2018!@
       AUTHDB: admin
@@ -142,7 +142,7 @@ services:
       io.rancher.scheduler.affinity:host_label: node={{WORKER2DEPLOY}}
   kafka:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/kafka-secured:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/kafka-secured:{{IMAGE_TAG}}
     hostname: sofia2-benchmarks
     environment:
       KAFKA_ADVERTISED_LISTENERS: SASL_PLAINTEXT://0.0.0.0:9095,PLAINTEXT://0.0.0.0:9092
@@ -163,7 +163,7 @@ services:
       io.rancher.container.pull_image: always
   monitoringuiservice:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/monitoringui:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/monitoringui:{{IMAGE_TAG}}
     environment:
       SERVER_NAME: {{DOMAIN_NAME}}
     stdin_open: true
@@ -177,7 +177,7 @@ services:
       io.rancher.container.pull_image: always
   dashboardengineservice:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/dashboard:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/dashboard:{{IMAGE_TAG}}
     environment:
       SERVER_NAME: {{DOMAIN_NAME}}
     stdin_open: true
@@ -195,7 +195,7 @@ services:
       io.rancher.scheduler.affinity:host_label: node={{WORKER2DEPLOY}}
   flowengineservice:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/flowengine:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/flowengine:{{IMAGE_TAG}}
     environment:
       SERVERNAME: {{DOMAIN_NAME}}
     stdin_open: true
@@ -215,7 +215,7 @@ services:
       io.rancher.scheduler.affinity:host_label: node={{WORKER2DEPLOY}}
   routerservice:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/router:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/router:{{IMAGE_TAG}}
     environment:
       SERVER_NAME: {{DOMAIN_NAME}}
     stdin_open: true
@@ -227,7 +227,7 @@ services:
       io.rancher.scheduler.affinity:host_label: node={{WORKER2DEPLOY}}
   cacheservice:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/cacheserver:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/cacheserver:{{IMAGE_TAG}}
     stdin_open: true
     volumes:
     - /datadrive/onesaitplatform/platform-logs:/var/log/platform-logs:rw
@@ -239,7 +239,7 @@ services:
       io.rancher.scheduler.affinity:host_label: node={{WORKER2DEPLOY}}
   controlpanelservice:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/controlpanel:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/controlpanel:{{IMAGE_TAG}}
     environment:
       SERVER_NAME: {{DOMAIN_NAME}}
       KAFKAENABLED: 'true'
@@ -262,7 +262,7 @@ services:
       io.rancher.scheduler.affinity:host_label: node={{WORKER2DEPLOY}}
   realtimedb:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/realtimedb:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/realtimedb:{{IMAGE_TAG}}
     stdin_open: true
     volumes:
     - /datadrive/onesaitplatform/realtimedb:/data/db:rw
@@ -274,7 +274,7 @@ services:
       io.rancher.container.pull_image: always
   elasticdb:
     privileged: true
-    image: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/elasticdb:{{IMAGE_TAG}}
+    picture: moaf-nexus.westeurope.cloudapp.azure.com:443/onesaitplatform/elasticdb:{{IMAGE_TAG}}
     stdin_open: true
     volumes:
     - /datadrive/onesaitplatform/elasticdb:/usr/share/elasticsearch/data:rw

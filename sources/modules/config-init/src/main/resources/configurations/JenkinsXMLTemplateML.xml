@@ -48,13 +48,13 @@
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>DOCKER_USERNAMEVALUE</name>
-          <description>Image registry image namespace</description>
+          <description>Image registry picture namespace</description>
           <defaultValue>onesaitplatform</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>DOCKER_PUSHREGISTRY_PRIVATE</name>
-          <description>Push image to private registry</description>
+          <description>Push picture to private registry</description>
           <defaultValue>true</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
@@ -106,10 +106,10 @@
               description: &apos;Image generation tag value&apos;)
        string(name: &apos;DOCKER_USERNAMEVALUE&apos;, 
               defaultValue: &apos;onesaitplatform&apos;, 
-              description: &apos;Image registry image namespace&apos;)
+              description: &apos;Image registry picture namespace&apos;)
        string(name: &apos;DOCKER_PUSHREGISTRY_PRIVATE&apos;, 
               defaultValue: &apos;true&apos;, 
-              description: &apos;Push image to private registry&apos;)
+              description: &apos;Push picture to private registry&apos;)
        string(name: &apos;PRIVATE_REGISTRY&apos;, 
               defaultValue: &apos;registry.onesaitplatform.com&apos;, 
               description: &apos;URL to the docker registry&apos;)
@@ -164,7 +164,7 @@
           echo "Delete Untagged images"
           sh "docker rmi -f \$(docker images -f dangling=true -q) || true"
           
-          echo "Delete pushed image"
+          echo "Delete pushed picture"
           sh "docker rmi -f \$(docker images | grep \$DOCKER_USERNAMEVALUE/ | awk '{print \$3}' | uniq) || true"
           
           echo "Deleting workspace"

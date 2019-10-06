@@ -115,18 +115,18 @@
 								</div>								
 								<div class="col-md-4 col-sm-6 col-xs-12">
 									<div class="form-group">
-										<label class="" th:text="#{themes.loginImage} + ':'">Login image</label>
+										<label class="" th:text="#{themes.loginImage} + ':'">Login picture</label>
 										<div id="imageBtn" class="row">
-											<button class="btn btn-circle btn-outline blue" type="button" th:onclick="'javascript:addImage();'" th:text="#{themes.addImage}">image</button>
+											<button class="btn btn-circle btn-outline blue" type="button" th:onclick="'javascript:addImage();'" th:text="#{themes.addImage}">picture</button>
 										</div>
-										<input id="image" th:field="*{image}" class="btn btn-default hide" type="file"/>
+										<input id="picture" th:field="*{picture}" class="btn btn-default hide" type="file"/>
 									</div>
 								</div>
 								<div class="col-md-4 col-sm-6 col-xs-12">
 									<div class="form-group">
-										<label class="" th:text="#{themes.headerImage} + ':'">Login image</label>
+										<label class="" th:text="#{themes.headerImage} + ':'">Login picture</label>
 										<div id="headerImageBtn" class="row">
-											<button class="btn btn-circle btn-outline blue" type="button" th:onclick="'javascript:addHeaderImage();'" th:text="#{themes.addHeaderImage}">image</button>
+											<button class="btn btn-circle btn-outline blue" type="button" th:onclick="'javascript:addHeaderImage();'" th:text="#{themes.addHeaderImage}">picture</button>
 										</div>
 										<input id="headerImage" th:field="*{headerImage}" class="btn btn-default hide" type="file"/>
 									</div>
@@ -259,7 +259,7 @@
 	}
 	
 	function addImage(){
-		$('#image').attr('class', 'btn btn-default');
+		$('#picture').attr('class', 'btn btn-default');
 		$('#imageBtn').attr('class', 'hide');
 	}
 	function addHeaderImage(){

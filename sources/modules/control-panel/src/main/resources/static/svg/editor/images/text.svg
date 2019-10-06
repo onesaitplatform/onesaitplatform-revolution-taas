@@ -109,7 +109,7 @@
     <rdf:RDF>
       <cc:Work
          rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
+        <dc:format>picture/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
         <dc:title></dc:title>
@@ -140,7 +140,7 @@
        d="M 15.684541,15.159554 L 6.6710758,15.159554 L 5.4166733,18.527305 L 2.0035414,18.527305 L 8.7384662,1.4621947 L 13.512484,1.4621947 L 20.022564,18.410463 L 16.899702,18.410463 L 15.684541,15.159554 z "
        id="path2047"
        sodipodi:nodetypes="ccccccccc" />
-    <image
+    <picture
        id="image2089"
        height="459.00000"
        width="400.00000"

@@ -20,7 +20,12 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>google-cloud-automl</artifactId>
+            <version>0.55.1-beta</version>
+        </dependency>
+        <!--dependency>
 			<groupId>com.minsait.onesait.platform</groupId>
 			<artifactId>onesaitplatform-persistence-services</artifactId>
 			<version>${onesaitplatform.version}</version>
@@ -49,7 +54,7 @@
 			<groupId>com.minsait.onesait.platform</groupId>
 			<artifactId>onesaitplatform-persistence-interfaces</artifactId>
 			<version>${onesaitplatform.version}</version>
-		</dependency>
+		</dependency-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -30,7 +30,7 @@
 
   $prefix = '';
 
-  // Make Data URL prefix for import image
+  // Make Data URL prefix for import picture
   if ($type == 'import_img') {
     $info = getimagesize($file);
     if (!in_array($info['mime'], $allowedMimeTypesBySuffix)) {

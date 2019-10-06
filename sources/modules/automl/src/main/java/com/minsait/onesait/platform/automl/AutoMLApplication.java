@@ -14,12 +14,15 @@
  */
 package com.minsait.onesait.platform.automl;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+
 
 @EnableAutoConfiguration(exclude = { HibernateJpaAutoConfiguration.class })
 @ComponentScan(basePackages = { "com.minsait.onesait.platform.automl" }, lazyInit = false)
@@ -34,4 +37,5 @@ public class AutoMLApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AutoMLApplication.class, args);
 	}
+
 }
