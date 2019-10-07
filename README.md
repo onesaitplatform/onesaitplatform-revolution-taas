@@ -49,6 +49,16 @@ Implementation diagram.
 
 ![classes.1](docs/diagrams/png/onesait.automl.class.1.png)
 
+#### Sequence
+
+Get models use case.
+
+![sequence.0.get_models](docs/diagrams/png/onesait.automl.sequence.0.get_models.png)
+
+Predict single label for image use case.
+
+![sequence.0.classify](docs/diagrams/png/onesait.automl.sequence.0.classify.png)
+
 
 ## Getting started with the platform 
 

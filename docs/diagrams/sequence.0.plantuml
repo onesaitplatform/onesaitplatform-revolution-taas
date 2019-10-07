@@ -1,0 +1,49 @@
+
+@startuml onesait.automl.sequence.0.get_models
+
+autonumber
+
+[-> ImageClassificationRESTController : GET /models
+ImageClassificationRESTController -> DefaultImageClassificationService : Get models
+DefaultImageClassificationService -> DefaultImageClassifierRepository : Get all
+DefaultImageClassificationService <-- DefaultImageClassifierRepository : models
+ImageClassificationRESTController <-- DefaultImageClassificationService : models
+[<-- ImageClassificationRESTController : models JSON
+
+@enduml
+
+
+
+@startuml onesait.automl.sequence.0.classify
+
+autonumber
+
+[-> ImageClassificationRESTController : POST /models/<model_id>/predictions
+activate ImageClassificationRESTController
+ImageClassificationRESTController -> DefaultImageClassificationService : classify(model_id, image)
+activate DefaultImageClassificationService
+DefaultImageClassificationService -> DefaultImageClassifierRepository : getByID(model_id)
+activate DefaultImageClassifierRepository
+create GoogleAutoMLRemoteImageClassifier
+DefaultImageClassifierRepository -> GoogleAutoMLRemoteImageClassifier : create
+DefaultImageClassificationService <-- DefaultImageClassifierRepository : image classifier
+deactivate DefaultImageClassifierRepository
+DefaultImageClassificationService -> GoogleAutoMLRemoteImageClassifier : predict(image)
+activate GoogleAutoMLRemoteImageClassifier
+create PredictionServiceClient
+GoogleAutoMLRemoteImageClassifier -> PredictionServiceClient: create
+GoogleAutoMLRemoteImageClassifier -> PredictionServiceClient : predict
+activate PredictionServiceClient
+PredictionServiceClient ->] : Google Cloud request
+PredictionServiceClient <-] : Google Cloud reponse
+GoogleAutoMLRemoteImageClassifier <-- PredictionServiceClient : prediction
+deactivate PredictionServiceClient
+GoogleAutoMLRemoteImageClassifier <- GoogleAutoMLRemoteImageClassifier : map prediction
+DefaultImageClassificationService <-- GoogleAutoMLRemoteImageClassifier : label
+deactivate GoogleAutoMLRemoteImageClassifier
+ImageClassificationRESTController <-- DefaultImageClassificationService : label
+deactivate DefaultImageClassificationService
+[<-- ImageClassificationRESTController : label JSON
+deactivate ImageClassificationRESTController
+
+@enduml
