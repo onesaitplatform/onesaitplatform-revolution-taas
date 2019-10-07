@@ -4,6 +4,7 @@ package com.minsait.onesait.platform.automl.vision.infrastructure;
 
 import com.google.cloud.automl.v1beta1.ModelName;
 import com.minsait.onesait.platform.automl.vision.domain.AutoMLPlatform;
+import com.minsait.onesait.platform.automl.vision.domain.DefaultAutoMLModel;
 
 
 public class GoogleAutoMLModel extends DefaultAutoMLModel {
