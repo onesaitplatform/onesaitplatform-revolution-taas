@@ -2,8 +2,12 @@
 package com.minsait.onesait.platform.automl.vision.domain;
 
 
+import java.util.Collection;
+
+
 public interface ImageClassificationService {
 
-    public Label classify(String modelIdentifier, Picture picture) throws ModelNotFoundException, ModelNotSuitableException;
+    Collection<AutoMLModel> getModels();
+    Label classify(String modelIdentifier, Picture picture) throws ModelNotFoundException, ModelNotSuitableException;
 
 }

@@ -29,6 +29,37 @@ You can find a complete description of these modules at [Platform Modules](https
 If you want a more technical detail you can read our [Architectural Guides](https://onesaitplatform.atlassian.net/wiki/spaces/OP/pages/360455/Architecture+Guides)
 
 
+### Auto ML Module
+
+#### Use Cases
+
+![use_cases](docs/diagrams/png/onesait.automl.use_cases.png)
+
+#### Components
+
+![components](docs/diagrams/png/onesait.automl.component.png)
+
+#### Classes
+
+Initial simplified design.
+
+![classes.0](docs/diagrams/png/onesait.automl.class.0.png)
+
+Implementation diagram.
+
+![classes.1](docs/diagrams/png/onesait.automl.class.1.png)
+
+#### Sequence
+
+Get models use case.
+
+![sequence.0.get_models](docs/diagrams/png/onesait.automl.sequence.0.get_models.png)
+
+Predict single label for image use case.
+
+![sequence.0.classify](docs/diagrams/png/onesait.automl.sequence.0.classify.png)
+
+
 ## Getting started with the platform 
 
 The best way yo start with Onesait Platform is accesing our [Developer Portal](https://onesaitplatform.atlassian.net/wiki/spaces/OP/pages/45842643/Platform+Guides) where you can find a complete set of guides and tutorials.

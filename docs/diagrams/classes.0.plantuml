@@ -1,0 +1,36 @@
+
+@startuml onesait.automl.class.0
+
+hide empty members
+
+interface ImageClassifier {
+    + Label predict(Image)
+}
+
+interface GoogleAutoMLImageClassifier {
+    + Label predict(Image)
+}
+
+class GoogleAutoMLRemoteImageClassifier <<adapter>> {
+    + Label predict(Image)
+}
+
+package GoogleAutoMLClientLibrary {}
+
+interface ImageClassificationService {
+    + Label classify(ModelID, Image)
+}
+
+class ImageClassifierRESTController {
+    + Label post(ModelID, Image)
+}
+note left: "Handles:\nPOST /automl/models/<model_id>/predictions"
+
+GoogleAutoMLImageClassifier -u-|> ImageClassifier
+GoogleAutoMLRemoteImageClassifier -u-|> GoogleAutoMLImageClassifier
+GoogleAutoMLRemoteImageClassifier .r.> GoogleAutoMLClientLibrary : <<uses>>
+ImageClassifierRESTController -u-> ImageClassificationService
+ImageClassificationService -u-> ImageClassifier
+GoogleAutoMLRemoteImageClassifier -[hidden]l-> ImageClassifierRESTController
+
+@enduml
