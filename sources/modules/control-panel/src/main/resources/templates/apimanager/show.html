@@ -207,9 +207,9 @@
 															<div class="clearfix"></div>
 															<div class="col-md-6 col-xs-12">
 																<div class="form-group">
-																	<label class="description" for="image" th:text="#{apimanager.image}">Image</label>
-																	<img th:if="${not #lists.isEmpty(api.image)}" th:src="@{/apimanager/} + ${api.id + '/getImage'}" class="img-responsive thumbnail" style="height: 60px; position: relative; float: right; top: 15px;"/>
-																	<img th:if="${#lists.isEmpty(api.image)}" th:src="@{/img/API.png}" class="img-responsive thumbnail" style="height: 60px; position: relative; float: right; top: 15px;"/>
+																	<label class="description" for="picture" th:text="#{apimanager.picture}">Image</label>
+																	<img th:if="${not #lists.isEmpty(api.picture)}" th:src="@{/apimanager/} + ${api.id + '/getImage'}" class="img-responsive thumbnail" style="height: 60px; position: relative; float: right; top: 15px;"/>
+																	<img th:if="${#lists.isEmpty(api.picture)}" th:src="@{/img/API.png}" class="img-responsive thumbnail" style="height: 60px; position: relative; float: right; top: 15px;"/>
 																</div>	
 															</div>
 														</div>	

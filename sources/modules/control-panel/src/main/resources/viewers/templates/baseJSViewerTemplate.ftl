@@ -1958,10 +1958,10 @@ function createRasterHeatmapColor() {
 		if (entity.rectangle) {
 			/** Check if has the heatmap-canvas tag */
 			if (
-				entity.rectangle.material.image._value.className === 'heatmap-canvas'
+				entity.rectangle.material.picture._value.className === 'heatmap-canvas'
 			) {
 				/** If so, get the heatmap ID */
-				heatmapId = entity.rectangle.material.image._value.id
+				heatmapId = entity.rectangle.material.picture._value.id
 
 				/** Remove the entity from viewer */
 				viewer.entities.remove(entity)
@@ -2237,7 +2237,7 @@ function loadWms(urlWmsService, layers = undefined, layerName) {
 		proxy: new Cesium.DefaultProxy('/proxy/'),
 		parameters: {
 			transparent: true,
-			format: 'image/png'
+			format: 'picture/png'
 		}
 	})
 
@@ -2411,7 +2411,7 @@ function drawPointClick() {
 		var id = viewer.entities.add({
 			position: Cesium.Cartesian3.fromDegrees(longitude, latitude),
 			billboard: {
-				image: imagePoint,
+				picture: imagePoint,
 				scale: 1.0
 			}
 		}).id

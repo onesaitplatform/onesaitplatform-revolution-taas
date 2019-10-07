@@ -2,7 +2,7 @@ version: "2.1"
 
 services:
   rules-engine:
-    image: onesaiplatform/rules-engine:latest
+    picture: onesaiplatform/rules-engine:latest
     container_name: rules-engine
     ports:
       - "20200:20200"

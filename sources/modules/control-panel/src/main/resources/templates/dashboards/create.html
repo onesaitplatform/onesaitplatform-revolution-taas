@@ -195,15 +195,15 @@
 													</div>
 													<div class="col-md-4 col-sm-12 col-xs-12">
 														<div class="form-group"><!-- IMAGE -->
-															<label  th:text="#{dashboards.image}">Image</label>
+															<label  th:text="#{dashboards.picture}">Image</label>
 															<div class="clearfix"></div>
 															<div id="imageShow" th:style="*{hasImage} ? 'display:block' : 'display:none'">
-																<button id="removeImgBtn" type="button" class="btn btn-sm btn-outline red-sunglo" name="removeImgBtn" onclick="manageImg()"><i class="fa fa-times"></i> <span th:text="#{gen.deleteBtn} + ' ' + #{dashboards.image}"> Delete Image</span></button>
+																<button id="removeImgBtn" type="button" class="btn btn-sm btn-outline red-sunglo" name="removeImgBtn" onclick="manageImg()"><i class="fa fa-times"></i> <span th:text="#{gen.deleteBtn} + ' ' + #{dashboards.picture}"> Delete Image</span></button>
 																<img id="showedImg" th:if="*{hasImage}" th:src="@{/dashboards/} + ${dashboard.id + '/getImage'}" class="img-responsive thumbnail" style="max-height: 135px; margin: 20px auto;"/>
 																<img id="showedImg" th:if="not *{hasImage}" th:src="@{/img/APPLICATION.png}" class="img-responsive thumbnail" style="max-height: 135px; margin: 20px auto;"/>
 															</div>
 															<div id="imageForm" th:style="*{hasImage} ? 'display:none' : 'display:block'">
-																<input id="image" class="btn btn-default" type="file" th:field="*{image}" onchange="DashboardsCreateController.validateImageSize();" style="width:100%"/>
+																<input id="picture" class="btn btn-default" type="file" th:field="*{picture}" onchange="DashboardsCreateController.validateImageSize();" style="width:100%"/>
 																<img id="showedImgPreview" class="img-responsive thumbnail" th:src="@{/img/APPLICATION.png}" style="max-height: 135px; margin: 20px auto;"/>
 															</div>															
 														</div>

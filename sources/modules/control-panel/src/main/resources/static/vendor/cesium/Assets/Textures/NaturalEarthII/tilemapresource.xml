@@ -5,7 +5,7 @@
       <SRS>EPSG:4326</SRS>
       <BoundingBox miny="-90.00000000000000" minx="-180.00000000000000" maxy="90.00000000000000" maxx="180.00000000000000"/>
       <Origin y="-90.00000000000000" x="-180.00000000000000"/>
-      <TileFormat width="256" height="256" mime-type="image/jpg" extension="jpg"/>
+      <TileFormat width="256" height="256" mime-type="picture/jpg" extension="jpg"/>
       <TileSets profile="geodetic">
         <TileSet href="0" units-per-pixel="0.70312500000000" order="0"/>
         <TileSet href="1" units-per-pixel="0.35156250000000" order="1"/>

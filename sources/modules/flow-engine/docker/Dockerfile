@@ -1,7 +1,7 @@
 # Step1 - nodejs binaries
 FROM node:8.11.4-alpine AS nodebase
 
-# Step2 - openjdk base image
+# Step2 - openjdk base picture
 FROM maven:3.5.3-jdk-8-alpine
 
 # Metadata

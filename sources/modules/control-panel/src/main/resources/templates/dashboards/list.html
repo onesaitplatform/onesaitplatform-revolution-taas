@@ -190,7 +190,7 @@
 																	<span  class="btn btn-xs btn-no-border btn-circle btn-outline blue tooltips" data-container="body" data-placement="bottom" title="URL Dashboard" data-original-title="URL Dashboard" th:onclick="'javascript:showDashboardURLDialog(\'' + @{|/dashboards/view/${dashboard.id}} + '\');'"><i class="la la-link font-hg"></i></span>
 																    
 																    <!-- EXPORT IMAGE -->
-																	<span  class="btn btn-xs btn-no-border btn-circle btn-outline blue tooltips" data-container="body" data-placement="bottom" title="Export Image" data-original-title="Export Image" th:onclick="'javascript:showExportImageDialog(\''+${dashboard.id}+ '\');'"><i class="la la-file-image-o font-hg"></i></span>
+																	<span  class="btn btn-xs btn-no-border btn-circle btn-outline blue tooltips" data-container="body" data-placement="bottom" title="Export Image" data-original-title="Export Image" th:onclick="'javascript:showExportImageDialog(\''+${dashboard.id}+ '\');'"><i class="la la-file-picture-o font-hg"></i></span>
 																    
 																    <!-- EXPORT PDF -->
 																	<span  class="btn btn-xs btn-no-border btn-circle btn-outline blue tooltips" data-container="body" data-placement="bottom" title="Export PDF" data-original-title="Export PDF" th:onclick="'javascript:showExportPDFDialog(\''+${dashboard.id}+ '\');'"><i class="la la-file-pdf-o font-hg"></i></span>
@@ -412,7 +412,7 @@
 var showExportImageDialog = function(id){
 
 	
-		var messageExportImage = [[#{dashboards.export.image}]];
+		var messageExportImage = [[#{dashboards.export.picture}]];
 		var messageStandbyTime = [[#{dashboards.export.wait}]];
 		var messageheight= [[#{dashboards.export.height}]];
 		var messagewidth= [[#{dashboards.export.width}]];
@@ -422,7 +422,7 @@ var showExportImageDialog = function(id){
 		var globalMessage=[[#{dashboards.export.emptyfields}]];
 		
 		$.confirm({
-			icon: 'la la-file-image-o font-hg',
+			icon: 'la la-file-picture-o font-hg',
 			title: messageExportImage,
 			theme: 'light',
 			columnClass: 'medium',

@@ -116,9 +116,9 @@
 								<div class="col-md-4 col-sm-6 col-xs-12" th:if="${type == 'edit'}">
 									<div class="form-group">
 										<label class="" th:text="#{themes.loginImage} + ':'">Login Image</label>
-										<input th:class="(!${theme.image64} OR ${theme.image64} == '') ? 'btn btn-default' : 'hide'" id="image" th:field="*{image}" type="file"/>
+										<input th:class="(!${theme.image64} OR ${theme.image64} == '') ? 'btn btn-default' : 'hide'" id="picture" th:field="*{picture}" type="file"/>
 										<div id="imageCell" th:if="${theme.image64} AND ${theme.image64} != ''" class="row">
-											<img th:if="${theme.image64} AND ${theme.image64} != ''" id="showImg" th:src="@{'data:image/jpeg;base64,'+${theme.image64}}" class="img-responsive thumbnail" style="height: 60px; position: relative; float: right; top: -45px;"/>
+											<img th:if="${theme.image64} AND ${theme.image64} != ''" id="showImg" th:src="@{'data:picture/jpeg;base64,'+${theme.image64}}" class="img-responsive thumbnail" style="height: 60px; position: relative; float: right; top: -45px;"/>
 											<button id="removeBtn" class="btn btn-circle btn-outline blue no-border" type="button" th:onclick="'javascript:removeImg();'" th:text="#{themes.removeImage}">clean</button>
 										</div>							
 									</div>
@@ -127,7 +127,7 @@
 									<div class="form-group">
 										<label class="" th:text="#{themes.loginImage} + ':'">Login Image</label>
 									</div>
-									<img th:if="${theme.image64} AND ${theme.image64} != ''" id="showImg" th:src="@{'data:image/jpeg;base64,'+${theme.image64}}" class="img-responsive thumbnail" style="height: 60px; position: relative; float: right; top: -45px;"/>
+									<img th:if="${theme.image64} AND ${theme.image64} != ''" id="showImg" th:src="@{'data:picture/jpeg;base64,'+${theme.image64}}" class="img-responsive thumbnail" style="height: 60px; position: relative; float: right; top: -45px;"/>
 								</div>
 								<div class="form-group hide">
 									<input id="img64_" type="text" class="form-control" th:field="*{image64}" th:value="${theme.image64}"/>
@@ -137,7 +137,7 @@
 										<label class="" th:text="#{themes.headerImage} + ':'">Login Image</label>
 										<input th:class="(!${theme.headerImage64} OR ${theme.headerImage64} == '') ? 'btn btn-default' : 'hide'" id="headerImage" th:field="*{headerImage}" type="file"/>
 										<div id="headerImageCell" th:if="${theme.headerImage64} AND ${theme.headerImage64} != ''" class="row">
-											<img th:if="${theme.headerImage64} AND ${theme.headerImage64} != ''" id="showHeaderImg" th:src="@{'data:image/jpeg;base64,'+${theme.headerImage64}}" class="img-responsive thumbnail" style="height: 60px; position: relative; float: right; top: -45px;"/>
+											<img th:if="${theme.headerImage64} AND ${theme.headerImage64} != ''" id="showHeaderImg" th:src="@{'data:picture/jpeg;base64,'+${theme.headerImage64}}" class="img-responsive thumbnail" style="height: 60px; position: relative; float: right; top: -45px;"/>
 											<button id="removeBtn" class="btn btn-circle btn-outline blue no-border" type="button" th:onclick="'javascript:removeHeaderImg();'" th:text="#{themes.removeHeaderImage}">clean</button>
 										</div>							
 									</div>
@@ -146,7 +146,7 @@
 									<div class="form-group">
 										<label class="" th:text="#{themes.headerImage} + ':'">Login Image</label>
 									</div>
-									<img id="showImg" th:if="${theme.headerImage64} AND ${theme.headerImage64} != ''" th:src="@{'data:image/jpeg;base64,'+${theme.headerImage64}}" class="img-responsive thumbnail" style="height: 60px; position: relative; float: right; top: -45px;"/>
+									<img id="showImg" th:if="${theme.headerImage64} AND ${theme.headerImage64} != ''" th:src="@{'data:picture/jpeg;base64,'+${theme.headerImage64}}" class="img-responsive thumbnail" style="height: 60px; position: relative; float: right; top: -45px;"/>
 								</div>
 								<div class="form-group hide">
 									<input id="headerImg64_" type="text" class="form-control" th:field="*{headerImage64}" th:value="${theme.headerImage64}"/>
@@ -284,7 +284,7 @@
 	
 	function removeImg (){
 		$('#img64_').val('');
-		$('#image').attr('class', 'btn btn-default')
+		$('#picture').attr('class', 'btn btn-default')
 		$('#imageCell').attr('class', 'hide');
 	}
 	

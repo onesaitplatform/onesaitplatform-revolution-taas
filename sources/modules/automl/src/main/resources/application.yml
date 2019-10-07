@@ -1,0 +1,49 @@
+security.ignored: /**
+
+management.security.enabled: false
+
+## WEBSERVER CONFIG
+server:
+   port: 19500
+   contextPath: /automl
+spring:
+  application.name: onesaitplatform-automl
+
+## CONFIGDB
+                       
+## MONITORING-UI          
+
+## ONESAIT PLATFORM SPECIFIC CONFIG    
+onesaitplatform:
+
+## ELASTIC SEARCH
+
+
+## REALTIMEDB - MONGODB      
+
+
+## ROUTER CONFIG  
+  router.avoidsslverification: true
+  router.alternativeURL: http://localhost:20000/router/router/   
+  router:
+    client:
+      rest:
+        connect-timeout: 30000
+        request-timeout: 30000
+        socket-timeout: 60000
+        max-total-connections: 100
+        default-keep-alive-time-millis: 20000
+        close-idle-connection-wait-time-secs: 30
+## SWAGGER CONFIG        
+        enable: true
+        swaggerhost: localhost:19500
+                
+## LOGGING CONF
+logging:
+   path: ./target/ 
+   file: ${spring.application.name}
+   level:
+      com.minsait: DEBUG 
+      org.springframework.boot: INFO
+#      org.springframework.boot.autoconfigure: DEBUG
+

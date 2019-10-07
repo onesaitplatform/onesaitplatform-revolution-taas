@@ -253,7 +253,7 @@ paths:
       post:
          tags:
          - pet
-         summary: uploads an image
+         summary: uploads an picture
          description: ''
          operationId: uploadFile
          consumes:

@@ -169,15 +169,15 @@
 												<div class="row">
 													<div class="col-md-3 col-sm-12 col-xs-12">
 														<div class="form-group">
-															<label  th:text="#{marketasset.image}">Image</label>
+															<label  th:text="#{marketasset.picture}">Image</label>
 															<div class="clearfix"></div>
 															<div id="imageShow" th:style="*{imageType} ? 'display:block' : 'display:none'">
-																<button id="removeImgBtn" type="button" class="btn btn-sm btn-outline btn-circle blue btn-block" name="removeImgBtn" onclick="manageImg()"><span th:text="#{gen.deleteBtn} + ' ' + #{marketasset.image}"> Delete Image</span></button>
-																<img id="showedImg" th:if="${not #lists.isEmpty(marketasset.image)}" th:src="@{/marketasset/} + ${marketasset.id + '/getImage'}" class="img-responsive thumbnail" style="max-height: 135px; margin: 20px auto;"/>
-																<img id="showedImg" th:if="${#lists.isEmpty(marketasset.image)}" th:src="@{/img/DOCUMENT.png}" class="img-responsive thumbnail" style="max-height: 135px; margin: 20px auto;"/>
+																<button id="removeImgBtn" type="button" class="btn btn-sm btn-outline btn-circle blue btn-block" name="removeImgBtn" onclick="manageImg()"><span th:text="#{gen.deleteBtn} + ' ' + #{marketasset.picture}"> Delete Image</span></button>
+																<img id="showedImg" th:if="${not #lists.isEmpty(marketasset.picture)}" th:src="@{/marketasset/} + ${marketasset.id + '/getImage'}" class="img-responsive thumbnail" style="max-height: 135px; margin: 20px auto;"/>
+																<img id="showedImg" th:if="${#lists.isEmpty(marketasset.picture)}" th:src="@{/img/DOCUMENT.png}" class="img-responsive thumbnail" style="max-height: 135px; margin: 20px auto;"/>
 															</div>
 															<div id="imageForm" th:style="*{imageType} ? 'display:none' : 'display:block'">
-																<input id="image" class="btn btn-default" type="file" th:field="*{image}" onchange="MarketAssetCreateController.validateImageSize();" style="width:100%" accept=".png,.jpeg,.jpg,.png"/>
+																<input id="picture" class="btn btn-default" type="file" th:field="*{picture}" onchange="MarketAssetCreateController.validateImageSize();" style="width:100%" accept=".png,.jpeg,.jpg,.png"/>
 																<img id="showedImgPreview" class="img-responsive thumbnail" th:src="@{/img/DOCUMENT.png}" style="max-height: 135px; margin: 20px auto;"/>
 															</div>
 															<input id="imageType" name="imageType" type="hidden" th:field="*{imageType}"/>
@@ -334,8 +334,8 @@
 	var error="";
 	var currentLanguage = [[${lang}]];	
 	
-    $('#image').change(function() {
-        var filename = $('#image').val();
+    $('#picture').change(function() {
+        var filename = $('#picture').val();
         var fileExt = filename.split('.').pop();
         $('#imageType').val(fileExt);
     });
@@ -354,7 +354,7 @@
 		"actionMode" : [[${marketasset.id}]],
 		"dateCreated" : [[${marketasset.createdAt}]],
 		"marketAssetmanager_identification_error" : [[#{marketasset.identification.error}]],
-		"marketAssetmanager_image_error" : [[#{marketasset.image.error	}]]
+		"marketAssetmanager_image_error" : [[#{marketasset.picture.error	}]]
 	};
 						
 	$(window).load(function(){  

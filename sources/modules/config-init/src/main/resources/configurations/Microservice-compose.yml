@@ -1,7 +1,7 @@
 version: '2'
 services:
   {{SERVICE_NAME}}:
-    image: {{IMAGE_URL}}
+    picture: {{IMAGE_URL}}
     environment:
       ONESAIT_SERVER_NAME: {{ONESAIT_SERVER_NAME}}
       SERVER_NAME: {{SERVER_NAME}}

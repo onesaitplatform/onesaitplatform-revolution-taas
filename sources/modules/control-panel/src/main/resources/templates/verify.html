@@ -77,7 +77,7 @@
 		  </div>
 	<header>
     <div class="ods-logo">
-      <svg th:if="!${image} or ${image} == ''" xmlns="http://www.w3.org/2000/svg" width="184" height="84" viewBox="0 0 184 84">
+      <svg th:if="!${picture} or ${picture} == ''" xmlns="http://www.w3.org/2000/svg" width="184" height="84" viewBox="0 0 184 84">
 		  <g transform="translate(0 2)">
 		    <polygon points="138.585 61.446 141.185 61.446 141.185 70.558 92.707 81.156 92.707 -1.31 141.241 9.301 141.241 18.938 138.641 18.938 138.641 11.394 95.307 1.92 95.307 77.926 138.585 68.465"/>
 		    <text ref="controlPanel" font-family="Soho" font-size="13.689" font-weight="300">
@@ -93,7 +93,7 @@
 		  </g>
 		</svg>
 		
-		<img  th:if="${image} and ${image} != ''" th:src="@{'data:image/jpeg;base64,'+${image}}" xmlns="http://www.w3.org/2000/svg" width="184" height="84" viewBox="0 0 184 84"/>
+		<img  th:if="${picture} and ${picture} != ''" th:src="@{'data:picture/jpeg;base64,'+${picture}}" xmlns="http://www.w3.org/2000/svg" width="184" height="84" viewBox="0 0 184 84"/>
     </div>
 	</header>
 

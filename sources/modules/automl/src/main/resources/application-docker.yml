@@ -1,0 +1,10 @@
+onesaitplatform:
+   router.alternativeURL: http://routerservice:20000/router/router/
+spring:
+   datasource:  
+   boot.admin: #Spring Boot Admin Config
+      url: http://monitoringuiservice:18100/monitoring  
+      client.service-url: http://iotbrokerservice:${server.port}${server.contextPath}/   
+## LOGGING CONF
+logging:
+   path: /var/log/platform-logs 

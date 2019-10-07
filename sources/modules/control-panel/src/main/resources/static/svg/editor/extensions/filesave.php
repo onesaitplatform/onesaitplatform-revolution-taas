@@ -20,7 +20,7 @@ function encodeRFC5987ValueChars ($str) {
 
 require('allowedMimeTypes.php');
 
-$mime = (!isset($_POST['mime']) || !in_array($_POST['mime'], $allowedMimeTypesBySuffix)) ? 'image/svg+xml;charset=UTF-8' : $_POST['mime'];
+$mime = (!isset($_POST['mime']) || !in_array($_POST['mime'], $allowedMimeTypesBySuffix)) ? 'picture/svg+xml;charset=UTF-8' : $_POST['mime'];
 
 if (!isset($_POST['output_svg']) && !isset($_POST['output_img'])) {
   die('post fail');
@@ -33,7 +33,7 @@ $suffix = '.' . array_search($mime, $allowedMimeTypesBySuffix);
 if (isset($_POST['filename']) && strlen($_POST['filename']) > 0) {
   $file = $_POST['filename'] . $suffix;
 } else {
-  $file = 'image' . $suffix;
+  $file = 'picture' . $suffix;
 }
 
 if ($suffix == '.svg') {
