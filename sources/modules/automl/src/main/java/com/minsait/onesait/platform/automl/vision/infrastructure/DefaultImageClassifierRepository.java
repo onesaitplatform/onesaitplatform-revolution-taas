@@ -4,6 +4,9 @@ package com.minsait.onesait.platform.automl.vision.infrastructure;
 
 import com.minsait.onesait.platform.automl.vision.domain.*;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 
 public class DefaultImageClassifierRepository implements ImageClassifierRepository {
 
@@ -16,6 +19,11 @@ public class DefaultImageClassifierRepository implements ImageClassifierReposito
     //endregion
 
     //region ImageClassifierRepository Implementation
+
+    @Override
+    public Collection<AutoMLModel> getAll() {
+        return new ArrayList<>();
+    }
 
     @Override
     public ImageClassifier getByIdentifier(String identifier) throws ModelNotFoundException, ModelNotSuitableException {

@@ -5,6 +5,8 @@ package com.minsait.onesait.platform.automl.vision.infrastructure;
 import com.minsait.onesait.platform.automl.vision.domain.*;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +26,11 @@ public class StaticImageClassifierRepository extends DefaultImageClassifierRepos
     //endregion
 
     //region DefaultImageClassifierRepository Override
+
+    @Override
+    public Collection<AutoMLModel> getAll() {
+        return this.modelMap.values();
+    }
 
     @Override
     protected AutoMLModel getModel(String identifier) {

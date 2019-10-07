@@ -2,6 +2,7 @@
 package com.minsait.onesait.platform.automl.vision.infrastructure;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.cloud.automl.v1beta1.ModelName;
 import com.minsait.onesait.platform.automl.vision.domain.AutoMLPlatform;
 import com.minsait.onesait.platform.automl.vision.domain.DefaultAutoMLModel;
@@ -23,6 +24,7 @@ public class GoogleAutoMLModel extends DefaultAutoMLModel {
 
     //region Public Methods
 
+    @JsonIgnore
     public ModelName getModelName() {
         return ModelName.of(this.getProject(), this.getLocation(), this.getModel());
     }

@@ -9,6 +9,14 @@ import com.minsait.onesait.platform.automl.vision.domain.AutoMLPlatform;
 
 public class DefaultAutoMLModel implements AutoMLModel {
 
+    //region AutoMLModel Override
+
+    public String getIdentifier() {
+        return null;
+    }
+
+    //endregion
+
     //region Getters & Setters
 
     public AutoMLEnvironment getEnvironment() {
