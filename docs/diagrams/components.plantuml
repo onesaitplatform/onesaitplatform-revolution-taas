@@ -1,0 +1,26 @@
+
+@startuml onesait.automl.component
+
+skinparam componentStyle uml2
+
+package "Onesait Platform" {
+    [Onesait Auto ML Module] as automl
+    () "REST API" as automl_rest
+    [Tensorflow Library] as tensorflow_library
+    [Google Cloud Client Library] as google_cloud_library
+}
+
+package "Google Cloud" {
+    [Google Auto ML Cloud] as google_automl
+    () "REST API" as google_automl_rest
+}
+
+automl_rest - automl
+google_automl -d- google_automl_rest
+automl .d.> google_cloud_library: <<uses>>
+automl .d.> tensorflow_library: <<uses>>
+google_cloud_library -[hidden]l-> tensorflow_library
+google_cloud_library .r.> google_automl_rest : <<uses>>
+
+
+@enduml

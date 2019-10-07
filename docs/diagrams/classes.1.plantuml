@@ -1,0 +1,97 @@
+
+@startuml onesait.automl.class.1
+
+skinparam componentStyle uml2
+hide empty members
+
+package "Onesait Platform Auto ML" {
+
+    package Domain {
+        interface ImageClassifier {
+            + String getIdentifier()
+            + Label predict(Picture picture)
+        }
+        interface AutoMLModel {
+            + AutoMLEnvironment getEnvironment()
+            + AutoMLPlatform getPlatform()
+        }
+        enum AutoMLEnvironment {
+            REMOTE
+            LOCAL
+        }
+        enum AutoMLPlatform {
+            GOOGLE
+        }
+        class DefaultAutoMLModel {
+            AutoMLEnvironment environment
+            AutoMLPlatform platform
+        }
+        interface ImageClassifierRepository {
+            ImageClassifier getByIdentifier(String identifier)
+        }
+        class Label {
+            String identifier
+            String name
+            Float score
+        }
+        class Picture {
+            byte[] image
+        }
+        interface ImageClassificationService {
+            Label classify(String modelIdentifier, Picture picture)
+        }
+        class DefaultImageClassificationService {
+            ImageClassifierRepository repository
+        }
+
+        AutoMLModel -l-> "1" AutoMLEnvironment
+        AutoMLModel -d-> "1" AutoMLPlatform
+        DefaultAutoMLModel -u-|> AutoMLModel
+        ImageClassifier .l.> "1" Picture : <<uses>
+        ImageClassifier .r.> "1" Label : <<produces>>
+        DefaultImageClassificationService .u.|> ImageClassificationService
+        DefaultImageClassificationService -r-> ImageClassifierRepository
+        ImageClassificationService .u.> ImageClassifier : <<uses>> 
+        DefaultAutoMLModel -[hidden]l--> ImageClassificationService
+    }
+
+    package Infrastructure {
+        class GoogleAutoMLModel {
+            String project
+            String location
+            String model
+        }
+        class GoogleAutoMLRemoteImageClassifier {
+            GoogleCloudContext context
+        }
+        class GoogleCloudContext {
+            Credentials credentials
+        }
+        class DefaultImageClassifierRepository {
+        }
+        package GoogleCloudClientLibrary {
+            class PredictionServiceClient {
+            }
+        }
+
+        GoogleAutoMLModel -u-|> DefaultAutoMLModel
+        GoogleAutoMLRemoteImageClassifier -u-|> GoogleAutoMLModel
+        GoogleAutoMLRemoteImageClassifier .u.|> ImageClassifier
+        GoogleAutoMLRemoteImageClassifier -l-> "1" GoogleCloudContext
+        GoogleAutoMLRemoteImageClassifier -r-> PredictionServiceClient : <<uses>>
+        DefaultImageClassifierRepository -u-|> ImageClassifierRepository
+        DefaultImageClassifierRepository .r.> GoogleAutoMLModel : <<creates>>
+    }
+
+    package "REST API" {
+        class ImageClassificationRESTController {
+            + Label classify(String modelIdentifier, byte[] image)
+        }
+        note bottom of ImageClassificationRESTController : "POST /automl/models/{model_id}/predictions"
+    }
+
+    ImageClassificationRESTController -u-> DefaultImageClassificationService
+
+}
+
+@enduml

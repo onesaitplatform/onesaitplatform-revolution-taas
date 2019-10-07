@@ -1,0 +1,21 @@
+
+@startuml onesait.automl.use_cases
+
+left to right direction
+
+actor Client
+
+usecase (Get image classifiers) as get_models
+usecase (Get image classifier by identifier) as get_model_by_id
+usecase (Predict image label) as predict_label
+usecase (Predict image label remote model) as predict_label_remote
+usecase (Predict image label local model) as predict_label_local
+
+Client --> get_models
+Client --> get_model_by_id
+Client --> predict_label
+predict_label ..> get_model_by_id : <<include>>
+predict_label_remote -u-|> predict_label
+predict_label_local -u-|> predict_label
+
+@enduml
