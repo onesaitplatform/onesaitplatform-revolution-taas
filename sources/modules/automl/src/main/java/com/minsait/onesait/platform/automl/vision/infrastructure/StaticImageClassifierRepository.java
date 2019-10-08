@@ -2,10 +2,10 @@
 package com.minsait.onesait.platform.automl.vision.infrastructure;
 
 
-import com.minsait.onesait.platform.automl.vision.domain.*;
+import com.minsait.onesait.platform.automl.vision.domain.AutoMLModel;
+import com.minsait.onesait.platform.automl.vision.domain.LabelMapper;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +21,7 @@ public class StaticImageClassifierRepository extends DefaultImageClassifierRepos
         this.modelMap = new HashMap<>();
         this.modelMap.put(skinCancerModelID, this.getSkinCancerModel(googleCloudContext));
         this.modelMap.put(skinCancerEdgeModelID, this.getSkinCancerEdgeModel(googleCloudContext));
+        this.modelMap.put(skinCancerLocalModelID, this.getSkinCancerLocalModel());
     }
 
     //endregion
@@ -43,9 +44,12 @@ public class StaticImageClassifierRepository extends DefaultImageClassifierRepos
 
     private static final String skinCancerModelID = "14c6918e-b033-47ce-ac18-3b82f34dcc7f";
     private static final String skinCancerEdgeModelID = "5d2a8731-4801-4932-a604-cc0086e5ba2f";
+    private static final String skinCancerLocalModelID = "6c4c59ce-446a-4586-a696-c67ffa33a985";
 
     private static final String project = "taas-automl";
     private static final String location = "us-central1";
+
+    private static final String skinCancerLocalModelName = "skin_cancer_onesait_edge_v1";
 
     private Map<String, AutoMLModel> modelMap;
 
@@ -65,6 +69,11 @@ public class StaticImageClassifierRepository extends DefaultImageClassifierRepos
         LabelMapper mapper = new SkinCancerLabelMapper();
         return new GoogleAutoMLRemoteImageClassifier(googleCloudContext,
                 skinCancerEdgeModelID, project, location, model, mapper);
+    }
+
+    private GoogleAutoMLLocalModel getSkinCancerLocalModel() {
+        LabelMapper mapper = new SkinCancerLabelMapper();
+        return new GoogleAutoMLLocalTensorflowImageClassifier(skinCancerLocalModelName, skinCancerLocalModelID, mapper);
     }
 
     //endregion
