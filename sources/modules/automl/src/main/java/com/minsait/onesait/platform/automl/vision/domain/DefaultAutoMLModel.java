@@ -1,5 +1,5 @@
 
-package com.minsait.onesait.platform.automl.vision.infrastructure;
+package com.minsait.onesait.platform.automl.vision.domain;
 
 
 import com.minsait.onesait.platform.automl.vision.domain.AutoMLEnvironment;
@@ -7,7 +7,15 @@ import com.minsait.onesait.platform.automl.vision.domain.AutoMLModel;
 import com.minsait.onesait.platform.automl.vision.domain.AutoMLPlatform;
 
 
-class DefaultAutoMLModel implements AutoMLModel {
+public class DefaultAutoMLModel implements AutoMLModel {
+
+    //region AutoMLModel Override
+
+    public String getIdentifier() {
+        return null;
+    }
+
+    //endregion
 
     //region Getters & Setters
 

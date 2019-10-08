@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+
 
 @RestController
 public class ImageClassificationRESTController {
@@ -20,6 +22,11 @@ public class ImageClassificationRESTController {
     //endregion
 
     //region Public Methods
+
+    @RequestMapping(path = "/models", method = RequestMethod.GET, produces = "application/json")
+    public Collection<AutoMLModel> getModels() throws Exception {
+        return this.imageClassificationService.getModels();
+    }
 
     @RequestMapping(path = "/models/{modelIdentifier}/predictions", method = RequestMethod.POST,
             consumes = "image/*", produces = "application/json")
